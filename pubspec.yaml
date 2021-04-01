@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   auto_size_text: ^2.1.0
-  image: ^2.1.4
+  image: ^3.0.1
 
 dev_dependencies:
   flutter_test:
