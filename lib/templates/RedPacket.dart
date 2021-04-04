@@ -23,15 +23,15 @@ class TemplateRedPacket extends BeautifulPopupTemplate {
   Widget get title {
     if (options.title is Widget) {
       return SizedBox(
-        width: percentW(100),
-        height: percentH(10),
+        width: percentW(100) as double?,
+        height: percentH(10) as double?,
         child: Center(
           child: options.title,
         ),
       );
     }
     return SizedBox(
-      width: percentW(100),
+      width: percentW(100) as double?,
       child: Center(
         child: Opacity(
           opacity: 0.95,
@@ -39,7 +39,7 @@ class TemplateRedPacket extends BeautifulPopupTemplate {
             options.title,
             maxLines: 1,
             style: TextStyle(
-              fontSize: Theme.of(options.context).textTheme.display1.fontSize,
+              fontSize: Theme.of(options.context!).textTheme.display1!.fontSize,
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
@@ -49,11 +49,11 @@ class TemplateRedPacket extends BeautifulPopupTemplate {
     );
   }
 
-  Widget get content {
+  Widget? get content {
     return options.content is String
         ? AutoSizeText(
             options.content,
-            minFontSize: Theme.of(options.context).textTheme.subhead.fontSize,
+            minFontSize: Theme.of(options.context!).textTheme.subhead!.fontSize!,
             style: TextStyle(
               color: Colors.white.withOpacity(0.95),
             ),
@@ -64,25 +64,25 @@ class TemplateRedPacket extends BeautifulPopupTemplate {
   @override
   BeautifulPopupButton get button {
     return ({
-      @required String label,
-      @required void Function() onPressed,
-      bool outline = false,
-      bool flat = false,
-      TextStyle labelStyle = const TextStyle(),
+      required String label,
+      required void Function() onPressed,
+      bool? outline = false,
+      bool? flat = false,
+      TextStyle? labelStyle = const TextStyle(),
     }) {
       final gradient = LinearGradient(colors: [
         primaryColor.withOpacity(0.5),
         primaryColor,
       ]);
-      final double elevation = (outline || flat) ? 0 : 2;
+      final double elevation = (outline! || flat!) ? 0 : 2;
       final labelColor =
-          (outline || flat) ? primaryColor : Colors.white.withOpacity(0.95);
+          (outline || flat!) ? primaryColor : Colors.white.withOpacity(0.95);
       final decoration = BoxDecoration(
-        gradient: (outline || flat) ? null : gradient,
+        gradient: (outline || flat!) ? null : gradient,
         borderRadius: BorderRadius.all(Radius.circular(80.0)),
         border: Border.all(
           color: outline ? primaryColor : Colors.transparent,
-          width: (outline && !flat) ? 1 : 0,
+          width: (outline && !flat!) ? 1 : 0,
         ),
       );
       final minHeight = 40.0 - (outline ? 2 : 0);
@@ -124,20 +124,20 @@ class TemplateRedPacket extends BeautifulPopupTemplate {
         child: background,
       ),
       Positioned(
-        top: percentH(10),
+        top: percentH(10) as double?,
         child: title,
       ),
       Positioned(
-        top: percentH(40),
-        left: percentW(12),
-        right: percentW(12),
-        height: percentH(actions == null ? 56 : 42),
-        child: content,
+        top: percentH(40) as double?,
+        left: percentW(12) as double?,
+        right: percentW(12) as double?,
+        height: percentH(actions == null ? 56 : 42) as double?,
+        child: content!,
       ),
       Positioned(
-        bottom: percentW(10),
-        left: percentW(10),
-        right: percentW(10),
+        bottom: percentW(10) as double?,
+        left: percentW(10) as double?,
+        right: percentW(10) as double?,
         child: actions ?? Container(),
       ),
     ];

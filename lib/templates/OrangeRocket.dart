@@ -22,20 +22,20 @@ class TemplateOrangeRocket extends BeautifulPopupTemplate {
   Widget get title {
     if (options.title is Widget) {
       return SizedBox(
-        width: percentW(40),
-        height: percentH(10),
+        width: percentW(40) as double?,
+        height: percentH(10) as double?,
         child: options.title,
       );
     }
     return SizedBox(
-      width: percentW(40),
+      width: percentW(40) as double?,
       child: Opacity(
         opacity: 0.8,
         child: AutoSizeText(
           options.title,
           maxLines: 1,
           style: TextStyle(
-            fontSize: Theme.of(options.context).textTheme.display1.fontSize,
+            fontSize: Theme.of(options.context!).textTheme.display1!.fontSize,
             color: primaryColor,
             fontWeight: FontWeight.bold,
           ),
@@ -51,21 +51,21 @@ class TemplateOrangeRocket extends BeautifulPopupTemplate {
         child: background,
       ),
       Positioned(
-        top: percentH(20),
-        left: percentW(10),
+        top: percentH(20) as double?,
+        left: percentW(10) as double?,
         child: title,
       ),
       Positioned(
-        top: percentH(50),
-        left: percentW(6),
-        right: percentW(6),
-        height: percentH(actions == null ? 46 : 34),
-        child: content,
+        top: percentH(50) as double?,
+        left: percentW(6) as double?,
+        right: percentW(6) as double?,
+        height: percentH(actions == null ? 46 : 34) as double?,
+        child: content!,
       ),
       Positioned(
-        bottom: percentW(5),
-        left: percentW(5),
-        right: percentW(5),
+        bottom: percentW(5) as double?,
+        left: percentW(5) as double?,
+        right: percentW(5) as double?,
         child: actions ?? Container(),
       ),
     ];

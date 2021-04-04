@@ -21,25 +21,25 @@ class TemplateGift extends BeautifulPopupTemplate {
   @override
   BeautifulPopupButton get button {
     return ({
-      @required String label,
-      @required void Function() onPressed,
-      bool outline = false,
-      bool flat = false,
-      TextStyle labelStyle = const TextStyle(),
+      required String label,
+      required void Function() onPressed,
+      bool? outline = false,
+      bool? flat = false,
+      TextStyle? labelStyle = const TextStyle(),
     }) {
       final gradient = LinearGradient(colors: [
         primaryColor.withOpacity(0.5),
         primaryColor,
       ]);
-      final double elevation = (outline || flat) ? 0 : 2;
+      final double elevation = (outline! || flat!) ? 0 : 2;
       final labelColor =
-          (outline || flat) ? primaryColor : Colors.white.withOpacity(0.95);
+          (outline || flat!) ? primaryColor : Colors.white.withOpacity(0.95);
       final decoration = BoxDecoration(
-        gradient: (outline || flat) ? null : gradient,
+        gradient: (outline || flat!) ? null : gradient,
         borderRadius: BorderRadius.all(Radius.circular(80.0)),
         border: Border.all(
           color: outline ? primaryColor : Colors.transparent,
-          width: (outline && !flat) ? 1 : 0,
+          width: (outline && !flat!) ? 1 : 0,
         ),
       );
       final minHeight = 40.0 - (outline ? 4 : 0);
@@ -81,20 +81,20 @@ class TemplateGift extends BeautifulPopupTemplate {
         child: background,
       ),
       Positioned(
-        top: percentH(26),
+        top: percentH(26) as double?,
         child: title,
       ),
       Positioned(
-        top: percentH(36),
-        left: percentW(5),
-        right: percentW(5),
-        height: percentH(actions == null ? 60 : 50),
-        child: content,
+        top: percentH(36) as double?,
+        left: percentW(5) as double?,
+        right: percentW(5) as double?,
+        height: percentH(actions == null ? 60 : 50) as double?,
+        child: content!,
       ),
       Positioned(
-        bottom: percentW(5),
-        left: percentW(5),
-        right: percentW(5),
+        bottom: percentW(5) as double?,
+        left: percentW(5) as double?,
+        right: percentW(5) as double?,
         child: actions ?? Container(),
       ),
     ];
