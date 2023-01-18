@@ -86,11 +86,15 @@ class TemplateRedPacket extends BeautifulPopupTemplate {
         ),
       );
       final minHeight = 40.0 - (outline ? 2 : 0);
-      return RaisedButton(
-        color: Colors.transparent,
-        elevation: elevation,
-        highlightElevation: 0,
-        splashColor: Colors.transparent,
+      return ElevatedButton(
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
+            elevation: MaterialStateProperty.all<double?>(elevation),
+            padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(0)),
+            shape: MaterialStateProperty.all<OutlinedBorder>(RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(50),
+            ))
+        ),
         child: Ink(
           decoration: decoration,
           child: Container(
@@ -107,10 +111,6 @@ class TemplateRedPacket extends BeautifulPopupTemplate {
               ).merge(labelStyle),
             ),
           ),
-        ),
-        padding: EdgeInsets.all(0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(50),
         ),
         onPressed: onPressed,
       );
